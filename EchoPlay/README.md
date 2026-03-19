@@ -4,7 +4,7 @@ EchoPlay is a command-line Java media playlist manager that lets users load, cre
 
 ## Overview
 
-This project is a file-backed CLI application built in Java. The main application lives under `FPJ/src` and starts from `MusifyApp`. Users can:
+This project is a file-backed CLI application built in Java. The main application starts from `src/MusifyApp.java`. Users can:
 
 - load an existing playlist index file at startup
 - create playlists for songs, podcasts, or short clips
@@ -16,7 +16,7 @@ This project is a file-backed CLI application built in Java. The main applicatio
 ## Project Structure
 
 ```text
-FPJ/
+EchoPlay/
 ├── src/
 │   ├── MusifyApp.java
 │   ├── enums/
@@ -49,7 +49,7 @@ FPJ/
 - Caption or lyric playback from plain text files
 - Validation for malformed files and invalid input
 - Automatic persistence when exiting the application
-- Sample data included under `FPJ/data`
+- Sample data included under `data`
 
 ## Requirements
 
@@ -58,32 +58,36 @@ FPJ/
 
 ## Compile
 
-From the repository root:
+From the project root:
 
 ```bash
 mkdir -p /tmp/echoplay-classes
-find FPJ/src -name '*.java' -print0 | xargs -0 javac -d /tmp/echoplay-classes
+find src -name '*.java' -print0 | xargs -0 javac -d /tmp/echoplay-classes
 ```
 
 ## Run
 
-Run from the repository root so the relative `data/` paths resolve correctly.
+Run from the `EchoPlay/` directory so the relative `data/` paths resolve correctly.
 
 Start with no existing playlist file:
 
 ```bash
-cd FPJ
 java -cp /tmp/echoplay-classes MusifyApp
 ```
 
 Start with a username and an existing playlist index file:
 
 ```bash
-cd FPJ
 java -cp /tmp/echoplay-classes MusifyApp Alice playlists1.txt
 ```
 
 When launched with two arguments, the program reads the playlist index from `data/<playlist-file>`.
+
+From the repository root, you can also use:
+
+```bash
+./run.sh echoplay
+```
 
 ## Menu Flow
 
@@ -99,8 +103,8 @@ The main menu supports:
 
 On exit, the app writes:
 
-- the playlist index file in `FPJ/data/`
-- each playlist's media file in `FPJ/data/playlist/`
+- the playlist index file in `data/`
+- each playlist's media file in `data/playlist/`
 
 If the app starts without a playlist index file argument, it defaults to saving the index as `data/playlists.txt` when exiting.
 
@@ -157,7 +161,7 @@ Each short clip line has 5 comma-separated fields:
 
 ### Caption Files
 
-Caption and lyric files are stored under `FPJ/data/mediatext/`. During playback, the program prints each line in the caption file to the terminal.
+Caption and lyric files are stored under `data/mediatext/`. During playback, the program prints each line in the caption file to the terminal.
 
 ## Notes and Constraints
 
@@ -185,7 +189,7 @@ Please select one of the options.
 
 ## Documentation
 
-Generated Javadoc is available in `FPJ/JAVADOC/index.html`.
+Generated Javadoc is available in `JAVADOC/index.html`.
 
 ## Suggested Project Name
 

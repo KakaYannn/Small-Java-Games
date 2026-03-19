@@ -46,14 +46,14 @@ java -cp out GameEngine <mazeLength> <mazeWidth> <seed>
 
 Location: `EchoPlay/`
 
-A command-line playlist manager for songs, podcasts, and short clips backed by text files. The full implementation lives in `EchoPlay/FPJ/`, including the source code, sample data, and generated Javadoc.
+A command-line playlist manager for songs, podcasts, and short clips backed by text files. The source code, sample data, and generated Javadoc now live directly under `EchoPlay/`.
 
 Main files:
 
-- `EchoPlay/FPJ/src/MusifyApp.java`
-- `EchoPlay/FPJ/src/model/ListOfPlaylists.java`
-- `EchoPlay/FPJ/src/model/playlist/Playlist.java`
-- `EchoPlay/FPJ/src/fileHandleUtils/FileHandler.java`
+- `EchoPlay/src/MusifyApp.java`
+- `EchoPlay/src/model/ListOfPlaylists.java`
+- `EchoPlay/src/model/playlist/Playlist.java`
+- `EchoPlay/src/fileHandleUtils/FileHandler.java`
 
 Runtime arguments:
 
@@ -61,7 +61,7 @@ Runtime arguments:
 java -cp out MusifyApp [username] [playlist-file]
 ```
 
-If a playlist file is provided, it is loaded from `EchoPlay/FPJ/data/`.
+If a playlist file is provided, it is loaded from `EchoPlay/data/`.
 
 ## Requirements
 
@@ -93,7 +93,7 @@ java -cp out GameEngine 12 10 42
 ### EchoPlay
 
 ```bash
-cd EchoPlay/FPJ
+cd EchoPlay
 mkdir -p out
 find src -name '*.java' -print0 | xargs -0 javac -d out
 java -cp out MusifyApp
@@ -102,8 +102,14 @@ java -cp out MusifyApp
 Load sample playlist data:
 
 ```bash
-cd EchoPlay/FPJ
+cd EchoPlay
 java -cp out MusifyApp Alice playlists1.txt
+```
+
+Or use the helper script from the repository root:
+
+```bash
+./run.sh echoplay
 ```
 
 ## Gameplay And Features
@@ -126,14 +132,13 @@ java -cp out MusifyApp Alice playlists1.txt
 
 - Create, inspect, modify, remove, and play playlists from a terminal menu
 - Supports songs, podcasts, and short clips
-- Reads and writes playlist data under `EchoPlay/FPJ/data/`
-- Includes generated Javadoc in `EchoPlay/FPJ/JAVADOC/`
+- Reads and writes playlist data under `EchoPlay/data/`
+- Includes generated Javadoc in `EchoPlay/JAVADOC/`
 
 ## Repository Notes
 
 - Each project keeps its own source files and documentation inside its own directory.
-- `EchoPlay/FPJ/` contains the complete playlist-manager implementation; the top-level `EchoPlay/MusifyApp.java` is only a partial stub.
-- Several files are already present in the worktree outside this README update. This rewrite only documents the repository as it currently exists.
+- `run.sh` provides a quick compile-and-run entry point for `pacman`, `maze-hunt`, and `echoplay`.
 
 ## License
 
