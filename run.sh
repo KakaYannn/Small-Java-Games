@@ -41,7 +41,7 @@ case "$mode" in
     run_project "Maze Hunt Pacman" GameEngine
     ;;
   echoplay)
-    run_project "EchoPlay/FPJ" MusifyApp
+    run_project "EchoPlay" MusifyApp
     ;;
   *)
     echo "$USAGE"
